@@ -1,13 +1,13 @@
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
-import viteReact from '@vitejs/plugin-react'
-import viteReactFastifyDX from 'fastify-dx-react/plugin'
-import unocss from 'unocss/vite'
+import viteReact from "@vitejs/plugin-react";
+import viteReactFastifyDX from "fastify-dx-react/plugin";
+import unocss from "unocss/vite";
 
-const path = fileURLToPath(import.meta.url)
+const path = fileURLToPath(import.meta.url);
 
-const root = join(dirname(path), 'client')
+const root = join(dirname(path), "client");
 const plugins = [
   viteReact({
     // Necessary until this Vite issue is resolved:
@@ -16,14 +16,15 @@ const plugins = [
   }),
   viteReactFastifyDX(),
   unocss(),
-]
+];
 
 export default {
   root,
   plugins,
   ssr: {
-    external: [
-      'use-sync-external-store',
-    ],
+    external: ["use-sync-external-store"],
   },
-}
+  build: {
+    target: "esnext",
+  },
+};
