@@ -6,7 +6,7 @@
     "serve": "tsx server.ts",
     "devinstall": "zx ../../devinstall.mjs -- tsx server.ts --dev",
     "build:client": "vite build --outDir dist/client --ssrManifest",
-    "build:server": "vite build --outDir dist/server --ssr ../server.ts",
+    "build:server": "vite build --outDir dist/server --ssr index.ts",
     "lint": "eslint . --ext .js,.ts,.tsx --fix"
   },
   "dependencies": {
